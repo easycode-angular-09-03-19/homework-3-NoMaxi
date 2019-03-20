@@ -1,0 +1,48 @@
+.content {
+    background: lightcyan url(../../../assets/car-bg.jpg) 80px 0;
+    height: 100vh;
+}
+
+.title {
+    color: brown;
+    text-shadow: #949b0a 2px -2px 2px;
+}
+
+.subtitle {
+    color: darkgoldenrod;
+    text-shadow: #0062cc 2px -2px 2px;
+}
+
+.table {
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+}
+
+.table thead {
+    background-color: #c0dfbc;
+    color: rebeccapurple;
+}
+
+.table td {
+    border: 1px solid #17a2b8;
+    vertical-align: middle;
+}
+
+.alert-message {
+    font-size: 0.72rem;
+    margin-bottom: 0;
+}
+
+button {
+    background-color: #fffcc8;
+    color: #0062cc;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    margin: 0 12.5% 0 12.5%;
+    outline: none;
+}
+
+button[disabled] {
+    background-color: #eee;
+    color: grey;
+}

@@ -1,0 +1,66 @@
+<div class="content">
+    <h1 class="title text-center text-capitalize font-weight-bold pt-2">car model</h1>
+
+    <h2 class="subtitle text-center font-weight-bold p-2">Primary characteristics</h2>
+    <table class="container col-6 table table-hover bg-white text-center align-middle">
+        <thead class="text-uppercase font-weight-bold">
+            <tr>
+                <td class="w-50">Characteristic</td>
+                <td class="w-50">Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>{{ name }}</td>
+            </tr>
+            <tr>
+                <td>Fuel tank capacity, L</td>
+                <td>{{ fuelTankCapacity }}</td>
+            </tr>
+            <tr class="font-weight-bold">
+                <td>Mileage, km</td>
+                <td>{{ mileage }}</td>
+            </tr>
+            <tr class="font-weight-bold"
+                [ngClass]="{
+                'alert-danger text-danger': _fuelTankIsEmpty,
+                'alert-warning': _fuelTankIsNearlyEmpty
+            }">
+                <td>Fuel level, L</td>
+                <td>
+                    <span>{{ fuel }}</span>
+                    <p class="alert-message" *ngIf="_fuelTankIsEmpty">Not enough
+                        fuel to make a single drive. Need to refuel.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="container col-6">
+        <button (click)="onClickHandler($event)"
+                [disabled]="_fuelTankIsEmpty"
+                class="btn-drive shadow col-3 rounded py-2 font-weight-bold">Drive
+        </button>
+        <button (click)="onClickHandler($event)"
+                *ngIf="_fuelTankIsNearlyEmpty"
+                class="btn-refuel shadow col-3 rounded py-2 font-weight-bold">Refuel
+        </button>
+    </div>
+
+    <h2 class="subtitle text-center font-weight-bold mt-3 p-2">Secondary characteristics</h2>
+    <table class="container col-6 table table-sm table-hover bg-white text-center align-middle">
+        <thead class="text-uppercase font-weight-bold">
+            <tr>
+                <td class="px-3">&#35;</td>
+                <td>Characteristic</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of characteristics; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
